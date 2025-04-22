@@ -1,0 +1,95 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradiente de fundo -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo principal -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)" />
+
+  <!-- Formas decorativas -->
+  <circle cx="150" cy="650" r="300" fill="url(#accent-gradient)" opacity="0.4" />
+  <circle cx="700" cy="150" r="250" fill="url(#accent-gradient)" opacity="0.3" />
+  
+  <!-- Padrão de pontos (grade) -->
+  <g opacity="0.2">
+    <g id="dots">
+      <circle cx="100" cy="100" r="3" fill="white" />
+      <circle cx="150" cy="100" r="3" fill="white" />
+      <circle cx="200" cy="100" r="3" fill="white" />
+      <circle cx="250" cy="100" r="3" fill="white" />
+      <circle cx="300" cy="100" r="3" fill="white" />
+      <circle cx="350" cy="100" r="3" fill="white" />
+      <circle cx="400" cy="100" r="3" fill="white" />
+      <circle cx="450" cy="100" r="3" fill="white" />
+      <circle cx="500" cy="100" r="3" fill="white" />
+      <circle cx="550" cy="100" r="3" fill="white" />
+      <circle cx="600" cy="100" r="3" fill="white" />
+      <circle cx="650" cy="100" r="3" fill="white" />
+      <circle cx="700" cy="100" r="3" fill="white" />
+    </g>
+    
+    <!-- Duplicar o padrão de pontos verticalmente -->
+    <use href="#dots" y="50" />
+    <use href="#dots" y="100" />
+    <use href="#dots" y="150" />
+    <use href="#dots" y="200" />
+    <use href="#dots" y="250" />
+    <use href="#dots" y="300" />
+    <use href="#dots" y="350" />
+    <use href="#dots" y="400" />
+    <use href="#dots" y="450" />
+    <use href="#dots" y="500" />
+    <use href="#dots" y="550" />
+    <use href="#dots" y="600" />
+    <use href="#dots" y="650" />
+    <use href="#dots" y="700" />
+  </g>
+
+  <!-- Logo Multservice -->
+  <g transform="translate(400, 400)">
+    <!-- Círculo de fundo para o logo -->
+    <circle cx="0" cy="0" r="150" fill="white" opacity="0.9" />
+
+    <!-- Texto Multservice -->
+    <text 
+      x="0" 
+      y="20" 
+      font-family="Arial, sans-serif" 
+      font-size="45" 
+      font-weight="bold" 
+      text-anchor="middle" 
+      fill="#047857">
+      MULTSERVICE
+    </text>
+
+    <!-- Ícones representando serviços -->
+    <g transform="translate(0, -40)">
+      <path d="M-60,-20 L-40,0 L-60,20 L-60,-20 Z" fill="#047857" />
+      <path d="M-30,-20 L-10,0 L-30,20 L-30,-20 Z" fill="#047857" />
+      <path d="M0,-20 L20,0 L0,20 L0,-20 Z" fill="#047857" />
+      <path d="M30,-20 L50,0 L30,20 L30,-20 Z" fill="#047857" />
+    </g>
+
+    <!-- Linha decorativa -->
+    <line x1="-80" y1="45" x2="80" y2="45" stroke="#047857" stroke-width="4" />
+
+    <!-- Slogan -->
+    <text 
+      x="0" 
+      y="80" 
+      font-family="Arial, sans-serif" 
+      font-size="16" 
+      text-anchor="middle" 
+      fill="#047857">
+      Conectando serviços
+    </text>
+  </g>
+</svg>

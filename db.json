@@ -1,0 +1,25 @@
+{
+  "contractors": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@email.com",
+      "contactNumber": "31997779822",
+      "address": "rua cubatão 157"
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "email": "john@email.com",
+      "contactNumber": "31997779822",
+      "address": "rua cubatão 157"
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "email": "john@email.com",
+      "contactNumber": "31997779822",
+      "address": "rua cubatão 157"
+    }
+  ]
+}
