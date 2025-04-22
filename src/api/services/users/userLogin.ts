@@ -21,3 +21,10 @@ export const signInUser = async (email: string, password: string) => {
   }
   console.log(data);
 };
+
+export const signOutUser = async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    throw new Error(error.message);
+  }
+};

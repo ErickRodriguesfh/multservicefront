@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import { useMobile } from "../hooks/use-mobile";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { signOutUser } from "../api/services/users/userLogin";
+import { useNavigate } from "@tanstack/react-router";
 
 interface NavItem {
   title: string;
@@ -35,6 +37,16 @@ const navItems: NavItem[] = [
 export function Navbar() {
   const isMobile = useMobile();
   const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      await signOutUser();
+      navigate({ to: "/auth/sign-up" });
+    } catch (error) {
+      alert("Erro ao deslogar");
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -62,8 +74,8 @@ export function Navbar() {
           {!isMobile && (
             <>
               <div className="pr-5">
-                <Button size="sm" asChild variant="destructive">
-                  <a>Sair</a>
+                <Button size="sm" variant="destructive" onClick={handleSignOut}>
+                  Sair
                 </Button>
               </div>
             </>

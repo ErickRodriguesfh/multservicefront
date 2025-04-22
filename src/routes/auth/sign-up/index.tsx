@@ -1,10 +1,10 @@
 import { createFileRoute, Navigate, useNavigate } from "@tanstack/react-router";
-import { SignUpForm } from "../../components/users/signup-form";
-import { CreateUser } from "../../types/create-user";
-import { signUpNewUser } from "../../api/services/users/userLogin";
+import { SignUpForm } from "../../../components/users/signup-form";
+import { CreateUser } from "../../../types/create-user";
+import { signUpNewUser } from "../../../api/services/users/userLogin";
 import { useState } from "react";
 
-export const Route = createFileRoute("/auth/")({
+export const Route = createFileRoute("/auth/sign-up/")({
   component: RouteComponent,
 });
 
