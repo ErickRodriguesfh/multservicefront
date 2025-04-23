@@ -74,7 +74,7 @@ export function Navbar() {
           {!isMobile && (
             <>
               <div className="pr-5">
-                <Button size="sm" variant="destructive" onClick={handleSignOut}>
+                <Button variant="secondary" onClick={handleSignOut}>
                   Sair
                 </Button>
               </div>

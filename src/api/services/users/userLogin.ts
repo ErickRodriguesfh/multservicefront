@@ -19,7 +19,7 @@ export const signInUser = async (email: string, password: string) => {
   if (error) {
     throw new Error(error.message);
   }
-  console.log(data);
+  return data;
 };
 
 export const signOutUser = async () => {

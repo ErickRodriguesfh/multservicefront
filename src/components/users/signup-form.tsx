@@ -17,9 +17,15 @@ type LoginSchema = z.infer<typeof loginSchema>;
 interface LoginFormProps extends React.ComponentPropsWithoutRef<"form"> {
   onAction?: (data: LoginSchema) => void;
   className?: string;
+  actionButtonText?: string;
 }
 
-export function SignUpForm({ onAction, className, ...props }: LoginFormProps) {
+export function SignUpForm({
+  onAction,
+  className,
+  actionButtonText,
+  ...props
+}: LoginFormProps) {
   const { register, handleSubmit } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
@@ -36,17 +42,7 @@ export function SignUpForm({ onAction, className, ...props }: LoginFormProps) {
       {...props}
       onSubmit={handleSubmit(handleLogin)}
     >
-      <div className="flex flex-col items-center gap-2 text-center">
-        <p className="text-balance text-sm">
-          Já tem uma conta?
-          <a
-            href="#"
-            className="ml-auto text-sm underline-offset-4 hover:underline pl-1"
-          >
-            Entrar
-          </a>
-        </p>
-      </div>
+      <div className="flex flex-col items-center gap-2 text-center"></div>
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="email">E-mail</Label>
@@ -77,14 +73,8 @@ export function SignUpForm({ onAction, className, ...props }: LoginFormProps) {
           />
         </div>
         <Button type="submit" className="w-full">
-          Cadastre-se
+          {actionButtonText}
         </Button>
-      </div>
-      <div className="text-center text-sm">
-        Ainda não tem uma conta?{" "}
-        <a href="#" className="underline underline-offset-4">
-          Registre-se
-        </a>
       </div>
     </form>
   );
