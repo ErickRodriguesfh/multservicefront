@@ -1,21 +1,22 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { SignUpForm } from "../../../components/users/signup-form";
-import { signInUser } from "../../../api/services/users/userLogin";
+import { signInUser } from "../../../api/services/user/userLogin";
 import { CreateUser } from "../../../types/create-user";
+import { useAuthStore } from "../../../store/authStore";
 
 export const Route = createFileRoute("/auth/sign-in/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  // Procurar Componente de spinner
   const navigate = useNavigate();
+  const setIsAuthenticated = useAuthStore((state) => state.setIsAuthenticated);
 
-  // Sign up
   const handleSignInUser = async (data: CreateUser) => {
     try {
       const response = await signInUser(data.email, data.password);
       console.log(response);
+      setIsAuthenticated(true);
       navigate({ to: "/" });
     } catch (err) {
       alert("Erro ao logar usuário");
@@ -65,7 +66,7 @@ function RouteComponent() {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <img
-          src="/public/multservice-login-background.svg"
+          src="/multservice-login-background.svg"
           alt="Image"
           className="absolute inset-0 h-full w-full object-cover "
         />

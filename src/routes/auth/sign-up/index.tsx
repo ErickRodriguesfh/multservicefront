@@ -1,24 +1,24 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { SignUpForm } from "../../../components/users/signup-form";
 import { CreateUser } from "../../../types/create-user";
-import { signUpNewUser } from "../../../api/services/users/userLogin";
+import { signUpNewUser } from "../../../api/services/user/userLogin";
+import { useAuthStore } from "../../../store/authStore";
 
 export const Route = createFileRoute("/auth/sign-up/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  // Procurar Componente de spinner
-
   const navigate = useNavigate();
+  const setIsAuthenticated = useAuthStore((state) => state.setIsAuthenticated);
 
   // Sign up
   const handleSignUpNewUser = async (data: CreateUser) => {
     try {
       const response = await signUpNewUser(data.email, data.password);
       console.log(response);
+      setIsAuthenticated(true);
       navigate({ to: "/" });
-      console.log("Navegação solicitada"); // Veja se este log aparece
     } catch (err) {
       alert("Erro ao criar usuário");
     } finally {

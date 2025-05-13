@@ -14,8 +14,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as ContractorsIndexImport } from './routes/contractors/index'
-import { Route as ContractorsCreateIndexImport } from './routes/contractors/create/index'
+import { Route as ServicesOfferServiceIndexImport } from './routes/services/offer-service/index'
 import { Route as AuthSignUpIndexImport } from './routes/auth/sign-up/index'
 import { Route as AuthSignInIndexImport } from './routes/auth/sign-in/index'
 
@@ -37,15 +36,9 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ContractorsIndexRoute = ContractorsIndexImport.update({
-  id: '/contractors/',
-  path: '/contractors/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ContractorsCreateIndexRoute = ContractorsCreateIndexImport.update({
-  id: '/contractors/create/',
-  path: '/contractors/create/',
+const ServicesOfferServiceIndexRoute = ServicesOfferServiceIndexImport.update({
+  id: '/services/offer-service/',
+  path: '/services/offer-service/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -79,13 +72,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
-    '/contractors/': {
-      id: '/contractors/'
-      path: '/contractors'
-      fullPath: '/contractors'
-      preLoaderRoute: typeof ContractorsIndexImport
-      parentRoute: typeof rootRoute
-    }
     '/auth/sign-in/': {
       id: '/auth/sign-in/'
       path: '/auth/sign-in'
@@ -100,11 +86,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthSignUpIndexImport
       parentRoute: typeof rootRoute
     }
-    '/contractors/create/': {
-      id: '/contractors/create/'
-      path: '/contractors/create'
-      fullPath: '/contractors/create'
-      preLoaderRoute: typeof ContractorsCreateIndexImport
+    '/services/offer-service/': {
+      id: '/services/offer-service/'
+      path: '/services/offer-service'
+      fullPath: '/services/offer-service'
+      preLoaderRoute: typeof ServicesOfferServiceIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -115,29 +101,26 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutLazyRoute
-  '/contractors': typeof ContractorsIndexRoute
   '/auth/sign-in': typeof AuthSignInIndexRoute
   '/auth/sign-up': typeof AuthSignUpIndexRoute
-  '/contractors/create': typeof ContractorsCreateIndexRoute
+  '/services/offer-service': typeof ServicesOfferServiceIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutLazyRoute
-  '/contractors': typeof ContractorsIndexRoute
   '/auth/sign-in': typeof AuthSignInIndexRoute
   '/auth/sign-up': typeof AuthSignUpIndexRoute
-  '/contractors/create': typeof ContractorsCreateIndexRoute
+  '/services/offer-service': typeof ServicesOfferServiceIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about': typeof AboutLazyRoute
-  '/contractors/': typeof ContractorsIndexRoute
   '/auth/sign-in/': typeof AuthSignInIndexRoute
   '/auth/sign-up/': typeof AuthSignUpIndexRoute
-  '/contractors/create/': typeof ContractorsCreateIndexRoute
+  '/services/offer-service/': typeof ServicesOfferServiceIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -145,45 +128,40 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/contractors'
     | '/auth/sign-in'
     | '/auth/sign-up'
-    | '/contractors/create'
+    | '/services/offer-service'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/contractors'
     | '/auth/sign-in'
     | '/auth/sign-up'
-    | '/contractors/create'
+    | '/services/offer-service'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/contractors/'
     | '/auth/sign-in/'
     | '/auth/sign-up/'
-    | '/contractors/create/'
+    | '/services/offer-service/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutLazyRoute: typeof AboutLazyRoute
-  ContractorsIndexRoute: typeof ContractorsIndexRoute
   AuthSignInIndexRoute: typeof AuthSignInIndexRoute
   AuthSignUpIndexRoute: typeof AuthSignUpIndexRoute
-  ContractorsCreateIndexRoute: typeof ContractorsCreateIndexRoute
+  ServicesOfferServiceIndexRoute: typeof ServicesOfferServiceIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutLazyRoute: AboutLazyRoute,
-  ContractorsIndexRoute: ContractorsIndexRoute,
   AuthSignInIndexRoute: AuthSignInIndexRoute,
   AuthSignUpIndexRoute: AuthSignUpIndexRoute,
-  ContractorsCreateIndexRoute: ContractorsCreateIndexRoute,
+  ServicesOfferServiceIndexRoute: ServicesOfferServiceIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -198,10 +176,9 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/about",
-        "/contractors/",
         "/auth/sign-in/",
         "/auth/sign-up/",
-        "/contractors/create/"
+        "/services/offer-service/"
       ]
     },
     "/": {
@@ -210,17 +187,14 @@ export const routeTree = rootRoute
     "/about": {
       "filePath": "about.lazy.tsx"
     },
-    "/contractors/": {
-      "filePath": "contractors/index.tsx"
-    },
     "/auth/sign-in/": {
       "filePath": "auth/sign-in/index.tsx"
     },
     "/auth/sign-up/": {
       "filePath": "auth/sign-up/index.tsx"
     },
-    "/contractors/create/": {
-      "filePath": "contractors/create/index.tsx"
+    "/services/offer-service/": {
+      "filePath": "services/offer-service/index.tsx"
     }
   }
 }
